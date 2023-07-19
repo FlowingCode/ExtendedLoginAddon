@@ -4,7 +4,7 @@
 
 # Extended Login Add-on
 
-This is add-on extends the Vaadin Login component adding new features
+This is add-on extends the Vaadin Login component adding new features.
 
 ## Features
 
