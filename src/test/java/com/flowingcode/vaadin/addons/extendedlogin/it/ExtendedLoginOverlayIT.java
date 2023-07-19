@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,10 +22,11 @@ package com.flowingcode.vaadin.addons.extendedlogin.it;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
 import com.vaadin.flow.component.html.testbench.AnchorElement;
+import org.junit.Test;
 
 public class ExtendedLoginOverlayIT extends AbstractViewTest {
 
@@ -40,7 +41,7 @@ public class ExtendedLoginOverlayIT extends AbstractViewTest {
     boolean buttonExists = $(ButtonElement.class).exists();
     assertTrue("Button not present", buttonExists);
     if (buttonExists) {
-      assertEquals("Sign In",$(ButtonElement.class).first().getText());
+      assertEquals("Sign In", $(ButtonElement.class).first().getText());
     }
     boolean anchorExists = $(AnchorElement.class).exists();
     assertTrue("Anchor not present", anchorExists);

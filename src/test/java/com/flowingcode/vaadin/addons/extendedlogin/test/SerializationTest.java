@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,6 +19,8 @@
  */
 package com.flowingcode.vaadin.addons.extendedlogin.test;
 
+import com.flowingcode.vaadin.addons.extendedlogin.ExtendedLoginOverlay;
+import com.flowingcode.vaadin.addons.extendedlogin.LoginLayout;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -26,8 +28,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import org.junit.Assert;
 import org.junit.Test;
-import com.flowingcode.vaadin.addons.extendedlogin.ExtendedLoginOverlay;
-import com.flowingcode.vaadin.addons.extendedlogin.LoginLayout;
 
 public class SerializationTest {
 
@@ -36,7 +36,8 @@ public class SerializationTest {
     try (ObjectOutputStream oos = new ObjectOutputStream(baos)) {
       oos.writeObject(obj);
     }
-    try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(baos.toByteArray()))) {
+    try (ObjectInputStream in =
+        new ObjectInputStream(new ByteArrayInputStream(baos.toByteArray()))) {
       obj.getClass().cast(in.readObject());
     }
   }
