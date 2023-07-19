@@ -1,22 +1,23 @@
-[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/template-addon)
-[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/app-layout-addon.svg)](https://vaadin.com/directory/component/template-addon)
-[![Build Status](https://jenkins.flowingcode.com/job/template-addon/badge/icon)](https://jenkins.flowingcode.com/job/template-addon)
+[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/extended-login-addon)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/extended-login-addon.svg)](https://vaadin.com/directory/component/extended-login-addon)
+[![Build Status](https://jenkins.flowingcode.com/job/extended-login-addon/badge/icon)](https://jenkins.flowingcode.com/job/extended-login-addon)
 
-# Template Add-on
+# Extended Login Add-on
 
-This is a template project for building new Vaadin 24 add-ons
+This is addon extends the Vaadin Login component adding new features
 
 ## Features
 
-* List the features of your add-on in here
+* Adds a LoginLayout that allows to create views with the same layout as the LoginOverlay
+* Adds an extended LoginOverlay that allows to customize the appearance with more features than the base version
 
 ## Online demo
 
-[Online demo here](http://addonsv24.flowingcode.com/template)
+[Online demo here](http://addonsv24.flowingcode.com/extended-login)
 
 ## Download release
 
-[Available in Vaadin Directory](https://vaadin.com/directory/component/template-addon)
+[Available in Vaadin Directory](https://vaadin.com/directory/component/extended-login-addon)
 
 ### Maven install
 
@@ -25,7 +26,7 @@ Add the following dependencies in your pom.xml file:
 ```xml
 <dependency>
    <groupId>org.vaadin.addons.flowingcode</groupId>
-   <artifactId>template-addon</artifactId>
+   <artifactId>extended-login-addon</artifactId>
    <version>X.Y.Z</version>
 </dependency>
 ```
@@ -49,7 +50,7 @@ To see the demo, navigate to http://localhost:8080/
 
 ## Release notes
 
-See [here](https://github.com/FlowingCode/TemplateAddon/releases)
+See [here](https://github.com/FlowingCode/ExtendedLoginAddon/releases)
 
 ## Issue tracking
 
@@ -74,13 +75,26 @@ Then, follow these steps for creating a contibution:
 
 This add-on is distributed under Apache License 2.0. For license terms, see LICENSE.txt.
 
-TEMPLATE_ADDON is written by Flowing Code S.A.
+Extended Login Addon is written by Flowing Code S.A.
 
 # Developer Guide
 
 ## Getting started
 
-Add your code samples in this section
+### Using the ExtendedLoginOverlay
+
+Just create it in the same way that you would do with original LoginOverlay, but you can call new methods for replacing content:
+
+    ExtendedLoginOverlay elo = new ExtendedLoginOverlay();
+    elo.replaceFormComponents(new TextField("Test", "test"), new ComboBox<String>("Test2"), new Button("Test3"));
+    elo.replaceHeaderComponent(new Image("/img/LogoChicoGlow.png", "Login image"));
+    elo.replaceForgotPassword(new Anchor("https://www.flowingcode.com","Flowing Code"));
+    elo.setOpened(true);
+    add(elo);
+
+### Using the LoginLayout
+
+The LoginLayout is like a regular RouterLayout that can be extended and then used in your views that you would like to have the same layout as the LoginOverlay. All the content will be inside the vaadin-login-form-wrapper. It also provides the same replace methods as the ExtendedLoginOverlay
 
 ## Special configuration when using Spring
 

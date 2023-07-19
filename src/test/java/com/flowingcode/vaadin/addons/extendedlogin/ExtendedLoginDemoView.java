@@ -17,15 +17,26 @@
  * limitations under the License.
  * #L%
  */
-package com.flowingcode.vaadin.addons;
+package com.flowingcode.vaadin.addons.extendedlogin;
 
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.router.RouterLayout;
+import com.flowingcode.vaadin.addons.DemoLayout;
+import com.flowingcode.vaadin.addons.GithubLink;
+import com.flowingcode.vaadin.addons.demo.TabbedDemo;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.router.ParentLayout;
+import com.vaadin.flow.router.Route;
 
 @SuppressWarnings("serial")
-public class DemoLayout extends Div implements RouterLayout {
+@ParentLayout(DemoLayout.class)
+@Route("extended-login")
+@GithubLink("https://github.com/FlowingCode/ExtendedLoginAddon")
+@CssImport("styles/shared-styles.css")
+public class ExtendedLoginDemoView extends TabbedDemo {
 
-  public DemoLayout() {
+  public ExtendedLoginDemoView() {
+    addDemo(LoginLayoutDemo.class);
+    addDemo(ExtendedLoginOverlayDemo.class);
+    
     setSizeFull();
   }
 }

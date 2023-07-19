@@ -1,15 +1,15 @@
 /*-
  * #%L
- * Template Add-on
+ * Extended Login Add-on
  * %%
- * Copyright (C) 2023 Flowing Code
+ * Copyright (C) 2022 - 2023 Flowing Code
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,22 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package com.flowingcode.vaadin.addons.template;
+package com.flowingcode.vaadin.addons.extendedlogin;
 
-import com.flowingcode.vaadin.addons.DemoLayout;
-import com.flowingcode.vaadin.addons.GithubLink;
-import com.flowingcode.vaadin.addons.demo.TabbedDemo;
-import com.vaadin.flow.router.ParentLayout;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.login.LoginOverlay;
 
+/**
+ * Special LoginOverlay that provides additional methods for replacing specific parts of the contents
+ * 
+ * @author mlopez
+ *
+ */
 @SuppressWarnings("serial")
-@ParentLayout(DemoLayout.class)
-@Route("template")
-@GithubLink("https://github.com/FlowingCode/AddonStarter24")
-public class TemplateDemoView extends TabbedDemo {
-
-  public TemplateDemoView() {
-    addDemo(TemplateDemo.class);
-    setSizeFull();
-  }
-}
+public class ExtendedLoginOverlay extends LoginOverlay implements ReplaceableLoginOverlay {}

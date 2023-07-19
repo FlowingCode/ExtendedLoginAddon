@@ -5,10 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.vaadin.addons.flowingcode</groupId>
-	<artifactId>template-addon</artifactId>
+	<artifactId>extended-login</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>Template Add-on</name>
-	<description>Template Add-on for Vaadin Flow</description>
+	<name>Extended Login Add-on</name>
+	<description>Extended Login Add-on for Vaadin Flow</description>
+	<url>https://www.flowingcode.com/en/open-source/</url>
 
 	<properties>
         <vaadin.version>24.1.2</vaadin.version>
@@ -19,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<drivers.dir>${project.basedir}/drivers</drivers.dir>
 		<jetty.version>11.0.12</jetty.version>
-		<flowingcode.commons.demo.version>3.6.0</flowingcode.commons.demo.version>
+		<flowingcode.commons.demo.version>3.7.0-SNAPSHOT</flowingcode.commons.demo.version>
 		<frontend.hotdeploy>true</frontend.hotdeploy>
 	</properties>
 
@@ -38,11 +39,19 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/FlowingCode/AddonStarter24</url>
-		<connection>scm:git:git://github.com/FlowingCode/AddonStarter24.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:/FlowingCode/AddonStarter24.git</developerConnection>
+		<url>https://github.com/FlowingCode/ExtendedLoginAddon</url>
+		<connection>scm:git:git://github.com/FlowingCode/ExtendedLoginAddon.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:/FlowingCode/ExtendedLoginAddon.git</developerConnection>
 		<tag>master</tag>
 	</scm>
+
+    <developers>
+        <developer>
+            <id>flowingcode</id>
+            <organization>Flowing Code</organization>
+            <organizationUrl>https://www.flowingcode.com</organizationUrl>
+        </developer>
+    </developers>
 
 	<dependencyManagement>
 		<dependencies>
@@ -87,6 +96,10 @@
         <repository>
             <id>flowing-releases</id>
             <url>https://maven.flowingcode.com/releases</url>
+        </repository>
+        <repository>
+            <id>flowing-snapshots</id>
+            <url>https://maven.flowingcode.com/snapshots</url>
         </repository>
 	</repositories>
 
@@ -206,7 +219,6 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
@@ -382,34 +394,6 @@
 					</plugin>
 
 					<plugin>
-						<groupId>com.lazerycode.selenium</groupId>
-						<artifactId>driver-binary-downloader-maven-plugin
-                        </artifactId>
-						<version>1.0.17</version>
-						<configuration>
-							<onlyGetDriversForHostOperatingSystem>
-								true
-							</onlyGetDriversForHostOperatingSystem>
-							<rootStandaloneServerDirectory>
-								${drivers.dir}/driver
-							</rootStandaloneServerDirectory>
-							<downloadedZipFileDirectory>
-								${drivers.dir}/driver_zips
-							</downloadedZipFileDirectory>
-							<customRepositoryMap>
-								${project.basedir}/drivers.xml
-							</customRepositoryMap>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>selenium</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-
-					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-failsafe-plugin</artifactId>
 						<version>2.22.2</version>
@@ -424,12 +408,6 @@
 						<configuration>
 							<trimStackTrace>false</trimStackTrace>
 							<enableAssertions>true</enableAssertions>
-							<systemPropertyVariables>
-								<!-- Pass location of downloaded webdrivers to the tests -->
-								<webdriver.chrome.driver>
-									${webdriver.chrome.driver}
-								</webdriver.chrome.driver>
-							</systemPropertyVariables>
 						</configuration>
 					</plugin>
 					<plugin>
