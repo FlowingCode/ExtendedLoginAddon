@@ -24,7 +24,7 @@ import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.login.LoginI18n.Header;
 
 /**
- * Test Login Layout that customizes titles, descriptions and additional information
+ * Test Login Layout that customizes titles, descriptions and additional information.
  *
  * @author mlopez
  */

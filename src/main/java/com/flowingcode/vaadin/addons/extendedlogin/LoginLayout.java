@@ -27,7 +27,7 @@ import com.vaadin.flow.router.RouterLayout;
 
 /**
  * LoginOverlay based Layout that can be used to display views with a similar layout as the
- * LoginOverlay It also provides methods for replacing part of the contents of the overlay
+ * LoginOverlay. It also provides methods for replacing part of the contents of the overlay.
  *
  * @author mlopez
  */
