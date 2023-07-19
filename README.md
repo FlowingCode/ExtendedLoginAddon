@@ -4,7 +4,7 @@
 
 # Extended Login Add-on
 
-This is addon extends the Vaadin Login component adding new features
+This is add-on extends the Vaadin Login component adding new features
 
 ## Features
 
@@ -75,7 +75,7 @@ Then, follow these steps for creating a contibution:
 
 This add-on is distributed under Apache License 2.0. For license terms, see LICENSE.txt.
 
-Extended Login Addon is written by Flowing Code S.A.
+Extended Login Add-on is written by Flowing Code S.A.
 
 # Developer Guide
 
