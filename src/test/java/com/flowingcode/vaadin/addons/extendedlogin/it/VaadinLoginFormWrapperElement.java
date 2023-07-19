@@ -1,6 +1,6 @@
 /*-
  * #%L
- * Template Add-on
+ * Extended Login Add-on
  * %%
  * Copyright (C) 2022 - 2023 Flowing Code
  * %%
@@ -17,15 +17,12 @@
  * limitations under the License.
  * #L%
  */
-package com.flowingcode.vaadin.addons;
+package com.flowingcode.vaadin.addons.extendedlogin.it;
 
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.testbench.TestBenchElement;
+import com.vaadin.testbench.elementsbase.Element;
 
-@SuppressWarnings("serial")
-public class DemoLayout extends Div implements RouterLayout {
+@Element("vaadin-login-form-wrapper")
+public class VaadinLoginFormWrapperElement extends TestBenchElement {
 
-  public DemoLayout() {
-    setSizeFull();
-  }
 }

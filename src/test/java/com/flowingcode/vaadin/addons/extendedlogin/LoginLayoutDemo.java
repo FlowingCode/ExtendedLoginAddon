@@ -1,6 +1,6 @@
 /*-
  * #%L
- * Template Add-on
+ * Extended Login Add-on
  * %%
  * Copyright (C) 2022 - 2023 Flowing Code
  * %%
@@ -17,15 +17,25 @@
  * limitations under the License.
  * #L%
  */
-package com.flowingcode.vaadin.addons;
+package com.flowingcode.vaadin.addons.extendedlogin;
 
+import com.flowingcode.vaadin.addons.demo.DemoSource;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.component.html.IFrame;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
+@DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayoutView.java")
+@PageTitle("Login Layout Demo")
 @SuppressWarnings("serial")
-public class DemoLayout extends Div implements RouterLayout {
+@Route(value = "demo", layout = ExtendedLoginDemoView.class)
+public class LoginLayoutDemo extends Div {
 
-  public DemoLayout() {
-    setSizeFull();
+  public LoginLayoutDemo() {
+    IFrame iframe = new IFrame("/login-layout");
+    iframe.setSizeFull();
+    iframe.getElement().setAttribute("frameBorder", "0");
+    add(iframe);
   }
+
 }

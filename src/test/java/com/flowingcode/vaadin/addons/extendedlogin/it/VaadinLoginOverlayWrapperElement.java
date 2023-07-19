@@ -1,8 +1,8 @@
 /*-
  * #%L
- * Template Add-on
+ * Extended Login Add-on
  * %%
- * Copyright (C) 2023 Flowing Code
+ * Copyright (C) 2022 - 2023 Flowing Code
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +17,12 @@
  * limitations under the License.
  * #L%
  */
+package com.flowingcode.vaadin.addons.extendedlogin.it;
 
-package com.flowingcode.vaadin.addons.template;
+import com.vaadin.testbench.TestBenchElement;
+import com.vaadin.testbench.elementsbase.Element;
 
-import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.JsModule;
-import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.html.Div;
+@Element("vaadin-login-overlay-wrapper")
+public class VaadinLoginOverlayWrapperElement extends TestBenchElement {
 
-@SuppressWarnings("serial")
-@NpmPackage(value = "@polymer/paper-input", version = "3.2.1")
-@JsModule("@polymer/paper-input/paper-input.js")
-@Tag("paper-input")
-public class TemplateAddon extends Div {}
+}
