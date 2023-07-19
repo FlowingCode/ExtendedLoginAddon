@@ -1,6 +1,6 @@
 /*-
  * #%L
- * Template Add-on
+ * Extended Login Add-on
  * %%
  * Copyright (C) 2022 - 2023 Flowing Code
  * %%
