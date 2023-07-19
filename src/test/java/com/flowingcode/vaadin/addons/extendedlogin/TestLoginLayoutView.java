@@ -29,7 +29,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 /**
- * Test View for demonstrating how to use LoginLayout
+ * Test View for demonstrating how to use LoginLayout.
  *
  * @author mlopez
  */

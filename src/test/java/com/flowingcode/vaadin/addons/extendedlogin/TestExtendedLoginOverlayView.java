@@ -31,7 +31,7 @@ import com.vaadin.flow.router.Route;
 import java.util.Arrays;
 
 /**
- * View that provides a demo of using an ExtendedLoginOverlay
+ * View that provides a demo of using an ExtendedLoginOverlay.
  *
  * @author mlopez
  */

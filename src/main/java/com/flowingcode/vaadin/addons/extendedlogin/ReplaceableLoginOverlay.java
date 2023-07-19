@@ -22,7 +22,7 @@ package com.flowingcode.vaadin.addons.extendedlogin;
 import com.vaadin.flow.component.HasElement;
 
 /**
- * Mixin interface providing methods for replacing contents of the LoginOverlay
+ * Mixin interface providing methods for replacing contents of the LoginOverlay.
  *
  * @author mlopez
  */

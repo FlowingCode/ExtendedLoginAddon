@@ -23,7 +23,7 @@ import com.vaadin.flow.component.login.LoginOverlay;
 
 /**
  * Special LoginOverlay that provides additional methods for replacing specific parts of the
- * contents
+ * contents.
  *
  * @author mlopez
  */
