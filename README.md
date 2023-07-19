@@ -83,7 +83,7 @@ Extended Login Add-on is written by Flowing Code S.A.
 
 ### Using the ExtendedLoginOverlay
 
-Just create it in the same way that you would do with original LoginOverlay, but you can call new methods for replacing content:
+Just create it in the same way that you would do with original `LoginOverlay`, but you can call new methods for replacing content:
 
     ExtendedLoginOverlay elo = new ExtendedLoginOverlay();
     elo.replaceFormComponents(new TextField("Test", "test"), new ComboBox<String>("Test2"), new Button("Test3"));
@@ -94,7 +94,7 @@ Just create it in the same way that you would do with original LoginOverlay, but
 
 ### Using the LoginLayout
 
-The LoginLayout is like a regular RouterLayout that can be extended and then used in your views that you would like to have the same layout as the LoginOverlay. All the content will be inside the vaadin-login-form-wrapper. It also provides the same replace methods as the ExtendedLoginOverlay
+The `LoginLayout` is like a regular `RouterLayout` that can be extended and then used in your views that you would like to have the same layout as the `LoginOverlay`. All the content will be inside the `vaadin-login-form-wrapper`. It also provides the same replace methods as the `ExtendedLoginOverlay`
 
 ## Special configuration when using Spring
 
