@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -30,14 +30,13 @@ import com.vaadin.flow.router.Route;
 
 /**
  * Test View for demonstrating how to use LoginLayout
- * 
- * @author mlopez
  *
+ * @author mlopez
  */
 @SuppressWarnings("serial")
 @Route(value = "login-layout", layout = TestLoginLayout.class)
 public class TestLoginLayoutView extends Div {
-  
+
   public TestLoginLayoutView() {
     add(createChangePasswordForm());
   }
@@ -47,16 +46,15 @@ public class TestLoginLayoutView extends Div {
     username.setEnabled(false);
     PasswordField password = new PasswordField("Password");
     PasswordField confirmPassword = new PasswordField("Confirm password");
-    Button accept = new Button("Accept",ev->Notification.show("Password changed."));
-    
+    Button accept = new Button("Accept", ev -> Notification.show("Password changed."));
+
     FormLayout formLayout = new FormLayout();
-    formLayout.add(username, password,
-            confirmPassword, accept);
+    formLayout.add(username, password, confirmPassword, accept);
     formLayout.setResponsiveSteps(
-            // Use one column by default
-            new ResponsiveStep("0", 1),
-            // Use two columns, if layout's width exceeds 500px
-            new ResponsiveStep("500px", 2));
+        // Use one column by default
+        new ResponsiveStep("0", 1),
+        // Use two columns, if layout's width exceeds 500px
+        new ResponsiveStep("500px", 2));
     // Stretch the username field over 2 columns
     formLayout.setColspan(username, 2);
     return formLayout;
