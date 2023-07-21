@@ -27,7 +27,7 @@ import com.vaadin.flow.router.Route;
 
 @DemoSource(
     "/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestExtendedLoginOverlayView.java")
-@PageTitle("Extended Login Add-on Demo")
+@PageTitle("Extended Login Overlay Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay-demo", layout = ExtendedLoginDemoView.class)
 public class ExtendedLoginOverlayDemo extends Div {
