@@ -28,11 +28,11 @@ import com.vaadin.flow.router.Route;
 @DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayoutView.java")
 @PageTitle("Login Layout Demo")
 @SuppressWarnings("serial")
-@Route(value = "demo", layout = ExtendedLoginDemoView.class)
+@Route(value = "extended-login/login-layout-demo", layout = ExtendedLoginDemoView.class)
 public class LoginLayoutDemo extends Div {
 
   public LoginLayoutDemo() {
-    IFrame iframe = new IFrame("/login-layout");
+    IFrame iframe = new IFrame("/extended-login/login-layout");
     iframe.setSizeFull();
     iframe.getElement().setAttribute("frameBorder", "0");
     add(iframe);

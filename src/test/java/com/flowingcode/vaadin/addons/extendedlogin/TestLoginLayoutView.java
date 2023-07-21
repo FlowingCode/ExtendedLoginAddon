@@ -34,7 +34,7 @@ import com.vaadin.flow.router.Route;
  * @author mlopez
  */
 @SuppressWarnings("serial")
-@Route(value = "login-layout", layout = TestLoginLayout.class)
+@Route(value = "extended-login/login-layout", layout = TestLoginLayout.class)
 public class TestLoginLayoutView extends Div {
 
   public TestLoginLayoutView() {

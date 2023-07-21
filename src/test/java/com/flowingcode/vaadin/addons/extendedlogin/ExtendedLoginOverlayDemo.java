@@ -29,12 +29,12 @@ import com.vaadin.flow.router.Route;
     "/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestExtendedLoginOverlayView.java")
 @PageTitle("Extended Login Add-on Demo")
 @SuppressWarnings("serial")
-@Route(value = "overlay-demo", layout = ExtendedLoginDemoView.class)
+@Route(value = "extended-login/login-overlay-demo", layout = ExtendedLoginDemoView.class)
 public class ExtendedLoginOverlayDemo extends Div {
 
   public ExtendedLoginOverlayDemo() {
 
-    IFrame iframe = new IFrame("/login-overlay");
+    IFrame iframe = new IFrame("/extended-login/login-overlay");
     iframe.setSizeFull();
     iframe.getElement().setAttribute("frameBorder", "0");
     add(iframe);

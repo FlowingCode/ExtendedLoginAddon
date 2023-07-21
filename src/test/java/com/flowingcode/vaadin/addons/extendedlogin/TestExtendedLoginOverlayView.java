@@ -36,7 +36,7 @@ import java.util.Arrays;
  * @author mlopez
  */
 @SuppressWarnings("serial")
-@Route(value = "login-overlay")
+@Route(value = "extended-login/login-overlay")
 public class TestExtendedLoginOverlayView extends Div {
 
   public TestExtendedLoginOverlayView() {
