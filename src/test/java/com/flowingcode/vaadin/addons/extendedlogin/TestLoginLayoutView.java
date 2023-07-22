@@ -19,6 +19,7 @@
  */
 package com.flowingcode.vaadin.addons.extendedlogin;
 
+import org.junit.Ignore;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep;
@@ -35,6 +36,7 @@ import com.vaadin.flow.router.Route;
  */
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-layout", layout = TestLoginLayout.class)
+@Ignore
 // show-source @Route("value = "extended-login/login-layout-demo", layout = ExtendedLoginDemoView.class)
 public class TestLoginLayoutView extends Div {
 
