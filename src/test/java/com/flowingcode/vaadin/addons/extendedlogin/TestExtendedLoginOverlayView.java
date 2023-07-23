@@ -29,6 +29,7 @@ import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import java.util.Arrays;
+import org.junit.Ignore;
 
 /**
  * View that provides a demo of using an ExtendedLoginOverlay.
@@ -37,6 +38,7 @@ import java.util.Arrays;
  */
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay")
+@Ignore
 public class TestExtendedLoginOverlayView extends Div {
 
   public TestExtendedLoginOverlayView() {
