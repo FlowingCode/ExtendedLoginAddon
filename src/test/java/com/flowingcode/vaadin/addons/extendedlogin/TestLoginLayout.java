@@ -34,7 +34,11 @@ public class TestLoginLayout extends LoginLayout {
 
   public TestLoginLayout() {
     setI18n(createI18N());
-    replaceHeaderComponent(new Image("/img/LogoChicoGlow.png", "Login image"));
+    Image image = new Image("/img/LogoChicoGlow.png", "Login image");
+    image.setClassName("logo-image");
+    image.setWidth("fit-content");
+    image.setHeight("fit-content");
+    replaceHeaderComponent(image);
   }
 
   private LoginI18n createI18N() {
