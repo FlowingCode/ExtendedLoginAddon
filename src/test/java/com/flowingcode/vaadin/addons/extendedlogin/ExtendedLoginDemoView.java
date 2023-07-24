@@ -22,7 +22,6 @@ package com.flowingcode.vaadin.addons.extendedlogin;
 import com.flowingcode.vaadin.addons.DemoLayout;
 import com.flowingcode.vaadin.addons.GithubLink;
 import com.flowingcode.vaadin.addons.demo.TabbedDemo;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.router.ParentLayout;
 import com.vaadin.flow.router.Route;
 
@@ -30,7 +29,6 @@ import com.vaadin.flow.router.Route;
 @ParentLayout(DemoLayout.class)
 @Route("extended-login")
 @GithubLink("https://github.com/FlowingCode/ExtendedLoginAddon")
-@CssImport("styles/shared-styles.css")
 public class ExtendedLoginDemoView extends TabbedDemo {
 
   public ExtendedLoginDemoView() {

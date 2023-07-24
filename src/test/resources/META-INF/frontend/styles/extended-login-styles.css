@@ -20,4 +20,21 @@
 /*Demo styles*/
 vaadin-login-overlay-wrapper::part(brand) {
   background: black;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-height: 600px) and (min-width: 600px) and (orientation: landscape) {
+	vaadin-login-overlay-wrapper::part(form) {
+		overflow: initial;
+	}
+}
+
+vaadin-login-overlay-wrapper::part(content) {
+  transform: scale(0.75);
+}
+
+.wrap-iframe {
+  overflow: hidden;
 }

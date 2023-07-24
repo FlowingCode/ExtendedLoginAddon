@@ -20,6 +20,7 @@
 package com.flowingcode.vaadin.addons.extendedlogin;
 
 import com.flowingcode.vaadin.addons.demo.DemoSource;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.IFrame;
 import com.vaadin.flow.router.PageTitle;
@@ -29,10 +30,13 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Login Layout Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-layout-demo", layout = ExtendedLoginDemoView.class)
+@CssImport("./styles/extended-login-styles.css")
 public class LoginLayoutDemo extends Div {
 
   public LoginLayoutDemo() {
+    setClassName("wrap-iframe");
     IFrame iframe = new IFrame("/extended-login/login-layout");
+    iframe.setClassName("frame");
     iframe.setSizeFull();
     iframe.getElement().setAttribute("frameBorder", "0");
     add(iframe);
