@@ -60,6 +60,7 @@ public class TestLoginLayoutView extends Div {
         new ResponsiveStep("500px", 2));
     // Stretch the username field over 2 columns
     formLayout.setColspan(username, 2);
+    formLayout.setColspan(accept, 2);
     return formLayout;
   }
 }
