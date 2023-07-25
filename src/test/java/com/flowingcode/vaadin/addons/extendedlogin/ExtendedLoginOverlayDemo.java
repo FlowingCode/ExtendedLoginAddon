@@ -31,7 +31,6 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Extended Login Overlay Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay-demo", layout = ExtendedLoginDemoView.class)
-@CssImport("./styles/extended-login-styles.css")
 public class ExtendedLoginOverlayDemo extends Div {
 
   public ExtendedLoginOverlayDemo() {

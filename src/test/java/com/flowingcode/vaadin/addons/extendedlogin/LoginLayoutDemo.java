@@ -30,7 +30,6 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Login Layout Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-layout-demo", layout = ExtendedLoginDemoView.class)
-@CssImport("./styles/extended-login-styles.css")
 public class LoginLayoutDemo extends Div {
 
   public LoginLayoutDemo() {
