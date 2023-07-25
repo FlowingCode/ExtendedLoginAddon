@@ -21,6 +21,7 @@ package com.flowingcode.vaadin.addons.extendedlogin;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
@@ -38,6 +39,7 @@ import org.junit.Ignore;
  */
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay")
+@CssImport("./styles/extended-login-styles.css") // hide-source
 @Ignore
 public class TestExtendedLoginOverlayView extends Div {
 
