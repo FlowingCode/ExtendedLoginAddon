@@ -1,5 +1,5 @@
-[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/extended-login-addon)
-[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/extended-login-addon.svg)](https://vaadin.com/directory/component/extended-login-addon)
+[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/extended-login-add-on)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/extended-login-add-on.svg)](https://vaadin.com/directory/component/extended-login-add-on)
 [![Build Status](https://jenkins.flowingcode.com/job/ExtendedLogin-addon/badge/icon)](https://jenkins.flowingcode.com/job/ExtendedLogin-addon)
 
 # Extended Login Add-on
