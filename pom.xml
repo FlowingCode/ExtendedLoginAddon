@@ -4,7 +4,7 @@
 
 	<groupId>org.vaadin.addons.flowingcode</groupId>
 	<artifactId>extended-login</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>Extended Login Add-on</name>
 	<description>Extended Login Add-on for Vaadin Flow</description>
 	<url>https://www.flowingcode.com/en/open-source/</url>
@@ -40,7 +40,7 @@
 		<url>https://github.com/FlowingCode/ExtendedLoginAddon</url>
 		<connection>scm:git:git://github.com/FlowingCode/ExtendedLoginAddon.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:/FlowingCode/ExtendedLoginAddon.git</developerConnection>
-		<tag>master</tag>
+		<tag>extended-login-1.0.1</tag>
 	</scm>
 
 	<distributionManagement>
