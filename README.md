@@ -1,6 +1,8 @@
 [![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/extended-login-add-on)
 [![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/extended-login-add-on.svg)](https://vaadin.com/directory/component/extended-login-add-on)
 [![Build Status](https://jenkins.flowingcode.com/job/ExtendedLogin-addon/badge/icon)](https://jenkins.flowingcode.com/job/ExtendedLogin-addon)
+[![Maven Central](https://img.shields.io/maven-central/v/org.vaadin.addons.flowingcode/extended-login)](https://mvnrepository.com/artifact/org.vaadin.addons.flowingcode/extended-login)
+
 
 # Extended Login Add-on
 
