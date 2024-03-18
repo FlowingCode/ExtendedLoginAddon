@@ -27,6 +27,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayoutView.java")
+@DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayout.java")
 @PageTitle("Login Layout Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-layout-demo", layout = ExtendedLoginDemoView.class)
