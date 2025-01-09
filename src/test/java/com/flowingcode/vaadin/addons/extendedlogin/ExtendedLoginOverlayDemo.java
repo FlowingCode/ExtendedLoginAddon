@@ -20,6 +20,7 @@
 package com.flowingcode.vaadin.addons.extendedlogin;
 
 import com.flowingcode.vaadin.addons.demo.DemoSource;
+import com.flowingcode.vaadin.addons.demo.TabbedDemo;
 import com.flowingcode.vaadin.addons.demo.ThemeChangeObserver;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.IFrame;
@@ -45,8 +46,7 @@ public class ExtendedLoginOverlayDemo extends Div implements ThemeChangeObserver
 
   @Override
   public void onThemeChange(String themeName) {
-    iframe.getElement().executeJs(
-        "this.contentWindow.document.querySelector('html').setAttribute('theme', $0)", themeName);
+    TabbedDemo.applyTheme(iframe.getElement(), themeName);
   }
 
 }
