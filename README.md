@@ -19,7 +19,7 @@ This add-on extends the Vaadin Login component adding new features.
 
 ## Download release
 
-[Available in Vaadin Directory](https://vaadin.com/directory/component/extended-login-addon)
+[Available in Vaadin Directory](https://vaadin.com/directory/component/extended-login-add-on)
 
 ### Maven install
 
