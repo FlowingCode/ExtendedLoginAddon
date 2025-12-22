@@ -47,7 +47,7 @@ public class LoginLayoutDemo extends Div implements ThemeChangeObserver {
 
   @Override
   public void onThemeChange(String themeName) {
-    TabbedDemo.applyTheme(iframe.getElement(), themeName);
+    TabbedDemo.applyThemeAttribute(iframe.getElement(), themeName);
   }
 
 }
