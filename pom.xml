@@ -467,6 +467,13 @@
 				<vaadin.version>25.0.0-beta2</vaadin.version>
 				<jetty.version>11.0.26</jetty.version>
 			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>com.vaadin</groupId>
+					<artifactId>vaadin-dev</artifactId>
+					<optional>true</optional>
+				</dependency>
+			</dependencies>
 		</profile>
         	<profile>
             	<id>release</id>
