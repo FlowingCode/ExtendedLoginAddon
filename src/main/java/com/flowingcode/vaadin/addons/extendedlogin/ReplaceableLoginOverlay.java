@@ -63,4 +63,14 @@ public interface ReplaceableLoginOverlay extends HasElement {
             "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].appendChild($0))",
             withElement);
   }
+
+  /**
+   * Removes the default submit button. 
+   */
+  default void removeSubmitButton() {
+      this.getElement()
+              .executeJs(
+                      "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].querySelector('[slot=\"submit\"]').remove())");
+  }
+ 
 }
