@@ -10,7 +10,7 @@
 	<url>https://www.flowingcode.com/en/open-source/</url>
 
 	<properties>
-        <vaadin.version>24.1.2</vaadin.version>
+        <vaadin.version>24.2.0</vaadin.version>
         <selenium.version>4.10.0</selenium.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
