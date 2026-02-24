@@ -50,6 +50,7 @@ public class TestExtendedLoginOverlayView extends Div {
         new ComboBox<String>("Branch", Arrays.asList("Santa Fe", "Rosario")),
         new PasswordField("Password"),
         new Button("Sign In", ev -> Notification.show("Login successfull")));
+    elo.removeSubmitButton();    
     Image image = new Image("/img/LogoChicoGlow.png", "Login image");
     image.setClassName("logo-image");
     image.setWidth("fit-content");
