@@ -2,7 +2,7 @@
  * #%L
  * Extended Login Add-on
  * %%
- * Copyright (C) 2023 Flowing Code
+ * Copyright (C) 2023 - 2026 Flowing Code
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
  * limitations under the License.
  * #L%
  */
-
 package com.flowingcode.vaadin.addons.extendedlogin;
 
 import com.vaadin.flow.component.AttachEvent;
