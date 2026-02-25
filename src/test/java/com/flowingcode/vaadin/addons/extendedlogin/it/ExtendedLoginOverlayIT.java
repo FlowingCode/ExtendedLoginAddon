@@ -31,7 +31,7 @@ import org.junit.Test;
 public class ExtendedLoginOverlayIT extends AbstractViewTest {
 
   public ExtendedLoginOverlayIT() {
-    super("login-overlay");
+    super("extended-login/login-overlay");
   }
 
   @Test

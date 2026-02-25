@@ -32,7 +32,7 @@ import org.junit.Test;
 public class LoginLayoutIT extends AbstractViewTest {
 
   public LoginLayoutIT() {
-    super("login-layout");
+    super("extended-login/login-layout");
   }
 
   @Test
