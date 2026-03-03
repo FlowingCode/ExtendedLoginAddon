@@ -30,13 +30,25 @@ public interface ReplaceableLoginOverlay extends HasElement {
 
   default void replaceFormComponents(HasElement... withElement) {
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].getElementsByTagName('form')[0].replaceChildren())");
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                .getElementsByTagName('form')[0]
+                .replaceChildren();
+            });
+            """);
     for (HasElement we : withElement) {
       getElement().appendChild(we.getElement());
       this.getElement()
-          .executeJs(
-              "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].getElementsByTagName('form')[0].appendChild($0))",
+          .executeJs("""
+              setTimeout(() => {
+                document.getElementById('vaadinLoginOverlayWrapper')
+                  .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                  .getElementsByTagName('form')[0]
+                  .appendChild($0);
+              });
+              """,
               we.getElement());
     }
   }
@@ -44,11 +56,21 @@ public interface ReplaceableLoginOverlay extends HasElement {
   default void replaceHeaderComponent(HasElement withElement) {
     getElement().appendChild(withElement.getElement());
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').shadowRoot.querySelector('[part=\"brand\"]').replaceChildren())");
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .shadowRoot.querySelector('[part="brand"]')
+                .replaceChildren();
+            });
+            """);
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').shadowRoot.querySelector('[part=\"brand\"]').appendChild($0))",
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .shadowRoot.querySelector('[part="brand"]')
+                .appendChild($0);
+            });
+            """,
             withElement);
   }
 
@@ -56,11 +78,22 @@ public interface ReplaceableLoginOverlay extends HasElement {
     withElement.getElement().setAttribute("slot", "forgot-password");
     getElement().appendChild(withElement.getElement());
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].querySelector('[slot=\\\"forgot-password\\\"]').remove())");
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                .querySelector('[slot="forgot-password"]')
+                .remove();
+            });
+            """);
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].appendChild($0))",
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                .appendChild($0);
+            });
+            """,
             withElement);
   }
 
@@ -69,8 +102,14 @@ public interface ReplaceableLoginOverlay extends HasElement {
    */
   default void removeSubmitButton() {
       this.getElement()
-              .executeJs(
-                      "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].querySelector('[slot=\"submit\"]').remove())");
+              .executeJs("""
+                  setTimeout(() => {
+                    document.getElementById('vaadinLoginOverlayWrapper')
+                      .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                      .querySelector('[slot="submit"]')
+                      .remove();
+                  });
+                  """);
   }
  
 }

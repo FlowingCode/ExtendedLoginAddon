@@ -52,13 +52,23 @@ public class LoginLayout extends LoginOverlay implements RouterLayout, Replaceab
     super.onAttach(attachEvent);
     setOpened(true);
     this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].replaceChildren())");
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                .replaceChildren();
+            });
+            """);
     this.getElement().appendChild(content.getElement());
     content.getElement().setAttribute("slot", "form");
     this.content
         .getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].appendChild(this))");
+        .executeJs("""
+            setTimeout(() => {
+              document.getElementById('vaadinLoginOverlayWrapper')
+                .getElementsByTagName('vaadin-login-form-wrapper')[0]
+                .appendChild(this);
+            });
+            """);
   }
 }
