@@ -51,24 +51,17 @@ public class LoginLayout extends LoginOverlay implements RouterLayout, Replaceab
   protected void onAttach(AttachEvent attachEvent) {
     super.onAttach(attachEvent);
     setOpened(true);
-    this.getElement()
-        .executeJs("""
-            setTimeout(() => {
-              document.getElementById('vaadinLoginOverlayWrapper')
-                .getElementsByTagName('vaadin-login-form-wrapper')[0]
-                .replaceChildren();
-            });
-            """);
+    this.getElement().executeJs(
+        ReplaceableLoginOverlay.getLoginFormWrapperScript(
+            """
+                formWrapper.querySelectorAll('[slot="form"], [slot="submit"], [slot="forgot-password"]').forEach(c => c.remove());
+                """));
     this.getElement().appendChild(content.getElement());
     content.getElement().setAttribute("slot", "form");
-    this.content
-        .getElement()
-        .executeJs("""
-            setTimeout(() => {
-              document.getElementById('vaadinLoginOverlayWrapper')
-                .getElementsByTagName('vaadin-login-form-wrapper')[0]
-                .appendChild(this);
-            });
-            """);
+    this.content.getElement().executeJs(
+        ReplaceableLoginOverlay.getLoginFormWrapperScript(
+            """
+                formWrapper.appendChild(this);
+                """));
   }
 }
