@@ -46,6 +46,9 @@ import com.vaadin.flow.router.Route;
 // show-source @Route("value = "extended-login/login-layout-demo", layout = TestLoginLayout.class)
 public class TestLoginLayoutView extends Div {
 
+  private PasswordField password;
+  private PasswordField confirmPassword;
+
   public TestLoginLayoutView() {
     add(createChangePasswordForm());
   }
@@ -53,9 +56,9 @@ public class TestLoginLayoutView extends Div {
   private FormLayout createChangePasswordForm() {
     TextField username = new TextField("Username");
     username.setEnabled(false);
-    PasswordField password = new PasswordField("Password");
-    PasswordField confirmPassword = new PasswordField("Confirm password");
-    Button accept = new Button("Accept", ev -> Notification.show("Password changed."));
+    password = new PasswordField("Password");
+    confirmPassword = new PasswordField("Confirm password");
+    Button accept = new Button("Accept", ev -> onAccept());
 
     FormLayout formLayout = new FormLayout();
     formLayout.add(username, password, confirmPassword, accept);
@@ -68,5 +71,15 @@ public class TestLoginLayoutView extends Div {
     formLayout.setColspan(username, 2);
     formLayout.setColspan(accept, 2);
     return formLayout;
+  }
+
+  private void onAccept() {
+    String passwordValue = this.password.getValue();
+    String confirmPasswordValue = this.confirmPassword.getValue();
+    if (passwordValue != null && !passwordValue.isBlank() && passwordValue.equals(confirmPasswordValue)) {
+      Notification.show("Password changed.");
+    } else {
+      Notification.show("Passwords do not match.");
+    }
   }
 }
