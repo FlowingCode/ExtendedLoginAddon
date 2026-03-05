@@ -38,7 +38,11 @@ import com.vaadin.flow.router.Route;
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-layout", layout = TestLoginLayout.class)
 @Ignore
-@CssImport("./styles/extended-login-styles.css") // hide-source
+//#if vaadin eq 24
+@CssImport("./styles/extended-login-styles.css")
+//#else
+@CssImport("./styles/extended-login-styles-v25.css")
+//#endif
 // show-source @Route("value = "extended-login/login-layout-demo", layout = TestLoginLayout.class)
 public class TestLoginLayoutView extends Div {
 
