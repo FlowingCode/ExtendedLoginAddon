@@ -445,7 +445,8 @@
 										<exclude>**/test/*</exclude>
 										<exclude>**/it/*</exclude>
 										<exclude>**/DemoView.class</exclude>
-										<exclude>**/DemoLayout.class</exclude>
+										<exclude>**/DemoLayout.class</exclude>										
+										<exclude>**/AppShellConfiguratorImpl.class</exclude>
 									</excludes>
 								</configuration>
 							</execution>
