@@ -39,7 +39,11 @@ import org.junit.Ignore;
  */
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay")
-@CssImport("./styles/extended-login-styles.css") // hide-source
+//#if vaadin eq 24
+@CssImport("./styles/extended-login-styles.css")
+//#else
+@CssImport("./styles/extended-login-styles-v25.css")
+//#endif
 @Ignore
 public class TestExtendedLoginOverlayView extends Div {
 

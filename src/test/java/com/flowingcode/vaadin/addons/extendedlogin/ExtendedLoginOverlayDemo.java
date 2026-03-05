@@ -29,6 +29,12 @@ import com.vaadin.flow.router.Route;
 
 @DemoSource(
     "/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestExtendedLoginOverlayView.java")
+//#if vaadin eq 0
+@DemoSource(value = "/src/test/resources/META-INF/frontend/styles/extended-login-styles.css",
+    caption = "extended-login-styles.css", condition = "vaadin eq 24")
+@DemoSource(value = "/src/test/resources/META-INF/frontend/styles/extended-login-styles-v25.css",
+    caption = "extended-login-styles-v25.css", condition = "vaadin ge 25")
+//#endif
 @PageTitle("Extended Login Overlay Demo")
 @SuppressWarnings("serial")
 @Route(value = "extended-login/login-overlay-demo", layout = ExtendedLoginDemoView.class)
