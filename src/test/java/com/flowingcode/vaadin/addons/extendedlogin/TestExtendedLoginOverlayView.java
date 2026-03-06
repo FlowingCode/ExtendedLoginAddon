@@ -64,4 +64,5 @@ public class TestExtendedLoginOverlayView extends Div {
     elo.setOpened(true);
     add(elo);
   }
+
 }
