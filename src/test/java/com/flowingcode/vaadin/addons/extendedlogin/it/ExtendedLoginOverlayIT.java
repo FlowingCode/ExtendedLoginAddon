@@ -26,16 +26,21 @@ import static org.junit.Assert.assertTrue;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
 import com.vaadin.flow.component.html.testbench.AnchorElement;
+import com.vaadin.flow.component.login.testbench.LoginOverlayElement;
+import com.vaadin.testbench.ElementQuery;
+
 import org.junit.Test;
 
 public class ExtendedLoginOverlayIT extends AbstractViewTest {
 
   public ExtendedLoginOverlayIT() {
-    super("extended-login/login-overlay");
+    super("it/extended-login/login-overlay");
   }
 
   @Test
-  public void testBasicBehaviour() {
+  public void testBasicBehaviour() {    
+    boolean vaadin25 = $server.getMajorVersion() >= 25; 
+
     boolean comboBoxExists = $(ComboBoxElement.class).exists();
     assertTrue("ComboBox not present", comboBoxExists);
     boolean buttonExists = $(ButtonElement.class).exists();
@@ -43,10 +48,13 @@ public class ExtendedLoginOverlayIT extends AbstractViewTest {
     if (buttonExists) {
       assertEquals("Sign In", $(ButtonElement.class).first().getText());
     }
-    boolean anchorExists = $(AnchorElement.class).exists();
+
+    ElementQuery<AnchorElement> anchorQuery = vaadin25 ? $(LoginOverlayElement.class).first().$(AnchorElement.class)
+        : $(AnchorElement.class);
+    boolean anchorExists = anchorQuery.exists();
     assertTrue("Anchor not present", anchorExists);
     if (anchorExists) {
-      assertEquals("Flowing Code Site", $(AnchorElement.class).first().getText());
+      assertEquals("Flowing Code Site", anchorQuery.first().getText());
     }
   }
 }

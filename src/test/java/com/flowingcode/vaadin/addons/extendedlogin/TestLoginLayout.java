@@ -55,4 +55,5 @@ public class TestLoginLayout extends LoginLayout {
     i18n.setAdditionalInformation("Change your password");
     return i18n;
   }
+
 }

@@ -20,6 +20,7 @@
 
 package com.flowingcode.vaadin.addons.extendedlogin.it;
 
+import com.flowingcode.vaadin.testbench.rpc.HasRpcSupport;
 import com.vaadin.testbench.ScreenshotOnFailureRule;
 import com.vaadin.testbench.TestBench;
 import com.vaadin.testbench.parallel.ParallelTest;
@@ -42,12 +43,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * <p>To learn more about TestBench, visit <a
  * href="https://vaadin.com/docs/v10/testbench/testbench-overview.html">Vaadin TestBench</a>.
  */
-public abstract class AbstractViewTest extends ParallelTest {
+public abstract class AbstractViewTest extends ParallelTest implements HasRpcSupport {
   private static final int SERVER_PORT = 8080;
 
   private final String route;
 
   @Rule public ScreenshotOnFailureRule rule = new ScreenshotOnFailureRule(this, true);
+
+  ServerVersionCallables $server = createCallableProxy(ServerVersionCallables.class);
 
   public AbstractViewTest() {
     this("");
@@ -70,7 +73,8 @@ public abstract class AbstractViewTest extends ParallelTest {
     } else {
       setDriver(TestBench.createDriver(new ChromeDriver()));
     }
-    getDriver().get(getURL(route));
+    getDriver().get(getURL(route)); 
+    getCommandExecutor().waitForVaadin();
   }
 
   /**
