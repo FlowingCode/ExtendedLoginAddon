@@ -52,16 +52,16 @@ public class LoginLayout extends LoginOverlay implements RouterLayout, Replaceab
     super.onAttach(attachEvent);
     setOpened(true);
     this.getElement().executeJs(
-        ReplaceableLoginOverlay.getLoginFormWrapperScript(
-            """
-                formWrapper.querySelectorAll('[slot="form"], [slot="submit"], [slot="forgot-password"]').forEach(c => c.remove());
-                """));
+            LoginOverlayUtils.getLoginFormWrapperScript(
+                """
+                    formWrapper.querySelectorAll('[slot="form"], [slot="submit"], [slot="forgot-password"]').forEach(c => c.remove());
+                    """));
     this.getElement().appendChild(content.getElement());
     content.getElement().setAttribute("slot", "form");
     this.content.getElement().executeJs(
-        ReplaceableLoginOverlay.getLoginFormWrapperScript(
-            """
-                formWrapper.appendChild(this);
-                """));
+            LoginOverlayUtils.getLoginFormWrapperScript(
+                """
+                    formWrapper.appendChild(this);
+                    """));
   }
 }
