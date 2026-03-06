@@ -28,6 +28,9 @@ import com.vaadin.flow.component.html.testbench.DivElement;
 import com.vaadin.flow.component.html.testbench.H2Element;
 import com.vaadin.flow.component.html.testbench.ImageElement;
 import org.junit.Test;
+import com.vaadin.flow.component.login.testbench.LoginOverlayElement;
+import com.vaadin.testbench.ElementQuery;
+import com.vaadin.testbench.TestBenchElement;
 
 public class LoginLayoutIT extends AbstractViewTest {
 
@@ -37,22 +40,34 @@ public class LoginLayoutIT extends AbstractViewTest {
 
   @Test
   public void testBasicBehaviour() {
-    VaadinLoginOverlayWrapperElement vlow = $(VaadinLoginOverlayWrapperElement.class).first();
-    VaadinLoginFormWrapperElement vlfw = $(VaadinLoginFormWrapperElement.class).first();
+    boolean vaadin25 = $server.getMajorVersion() >= 25;
+
+    LoginOverlayElement vlo = $(LoginOverlayElement.class).first();
+    TestBenchElement vlow = vaadin25 ? vlo.getLoginOverlayWrapper() : $(VaadinLoginOverlayWrapperElement.class).first();
+    TestBenchElement vlfw = vaadin25 ? vlo.$("vaadin-login-form-wrapper").first()
+        : $(VaadinLoginFormWrapperElement.class).first();
+
     assertTrue(
         "Custom image is not present",
         vlow.$(ImageElement.class).attribute("alt", "Login image").exists());
-    boolean h2exists = vlfw.$(H2Element.class).exists();
-    assertTrue("H2 is not present", h2exists);
-    if (h2exists) {
-      assertEquals("Change Password", vlfw.$(H2Element.class).first().getText());
+
+    if (vaadin25) {
+      assertEquals("Change Password", vlo.getFormTitle());
+    } else {
+      boolean h2exists = vlfw.$(H2Element.class).exists();
+      assertTrue("H2 is not present", h2exists);
+      if (h2exists) {
+        assertEquals("Change Password", vlfw.$(H2Element.class).first().getText());
+      }
     }
-    boolean divSlotFormExists = $(DivElement.class).attribute("slot", "form").exists();
+
+    ElementQuery<DivElement> divSlotForm = vlfw.$(DivElement.class).attribute("slot", "form");
+    boolean divSlotFormExists = divSlotForm.exists();
     assertTrue("Div with slot form is not present", divSlotFormExists);
     if (divSlotFormExists) {
-      boolean divContainsFormLayoutExists =
-          $(DivElement.class).attribute("slot", "form").first().$(FormLayoutElement.class).exists();
+      boolean divContainsFormLayoutExists = divSlotForm.first().$(FormLayoutElement.class).exists();
       assertTrue("Div does not contain form layout", divContainsFormLayoutExists);
     }
   }
+
 }

@@ -123,6 +123,12 @@
 			<artifactId>vaadin-testbench</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>com.flowingcode.vaadin.test</groupId>
+            <artifactId>testbench-rpc</artifactId>
+            <version>1.5.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
 			<groupId>com.flowingcode.vaadin.addons.demo</groupId>
 			<artifactId>commons-demo</artifactId>

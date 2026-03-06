@@ -19,6 +19,8 @@
  */
 package com.flowingcode.vaadin.addons.extendedlogin;
 
+import com.flowingcode.vaadin.addons.extendedlogin.it.ServerVersionCallables;
+import com.vaadin.flow.component.ClientCallable;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -45,7 +47,8 @@ import org.junit.Ignore;
 @CssImport("./styles/extended-login-styles-v25.css")
 //#endif
 @Ignore
-public class TestExtendedLoginOverlayView extends Div {
+// show-source public class TestExtendedLoginOverlayView extends Div {
+public class TestExtendedLoginOverlayView extends Div implements ServerVersionCallables { //hide-source
 
   public TestExtendedLoginOverlayView() {
     ExtendedLoginOverlay elo = new ExtendedLoginOverlay();
@@ -64,4 +67,13 @@ public class TestExtendedLoginOverlayView extends Div {
     elo.setOpened(true);
     add(elo);
   }
+
+  //#if vaadin eq 0
+  @Override
+  @ClientCallable
+  public int getMajorVersion() {
+    return com.vaadin.flow.server.Version.getMajorVersion();
+  }
+  //#endif
+  
 }

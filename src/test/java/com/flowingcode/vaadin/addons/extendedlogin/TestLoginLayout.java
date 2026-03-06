@@ -19,6 +19,8 @@
  */
 package com.flowingcode.vaadin.addons.extendedlogin;
 
+import com.flowingcode.vaadin.addons.extendedlogin.it.ServerVersionCallables;
+import com.vaadin.flow.component.ClientCallable;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.login.LoginI18n.Header;
@@ -28,7 +30,8 @@ import com.vaadin.flow.component.login.LoginI18n.Header;
  *
  * @author mlopez
  */
-public class TestLoginLayout extends LoginLayout {
+//show-source public class TestLoginLayout extends LoginLayout {
+public class TestLoginLayout extends LoginLayout implements ServerVersionCallables { //hide-source
 
   private static final long serialVersionUID = 1L;
 
@@ -55,4 +58,12 @@ public class TestLoginLayout extends LoginLayout {
     i18n.setAdditionalInformation("Change your password");
     return i18n;
   }
+
+  // #if vaadin eq 0
+  @Override
+  @ClientCallable
+  public int getMajorVersion() {
+    return com.vaadin.flow.server.Version.getMajorVersion();
+  }
+  // #endif
 }
