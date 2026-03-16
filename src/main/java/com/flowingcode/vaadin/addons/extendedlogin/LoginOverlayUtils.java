@@ -30,6 +30,7 @@ class LoginOverlayUtils {
 
   /**
    * Generates a JavaScript snippet that finds the overlay wrapper element.
+   * Handles both Vaadin 24 and Vaadin 25+ compatibility.
    *
    * @param action the JavaScript code to execute on the overlay wrapper
    * @return the complete JavaScript string with the overlay wrapper lookup and
@@ -39,6 +40,13 @@ class LoginOverlayUtils {
     return """
         setTimeout(() => {
           var overlayWrapper = document.getElementById('vaadinLoginOverlayWrapper');
+          if (!overlayWrapper) {
+            var loginOverlay = document.querySelector('vaadin-login-overlay');
+            if (loginOverlay && loginOverlay.shadowRoot) {
+              overlayWrapper = loginOverlay.shadowRoot
+                .querySelector('vaadin-login-overlay-wrapper');
+            }
+          }
           if (!overlayWrapper) return;
           %s
         });
@@ -46,7 +54,8 @@ class LoginOverlayUtils {
   }
 
   /**
-   * Generates a JavaScript snippet that finds the form element.
+   * Generates a JavaScript snippet that finds the form element. Handles both
+   * Vaadin 24 and Vaadin 25+ compatibility.
    *
    * @param action the JavaScript code to execute on the form
    * @return the complete JavaScript string with the form lookup and the provided
@@ -56,6 +65,9 @@ class LoginOverlayUtils {
     return """
         setTimeout(() => {
           var overlayFormWrapper = document.getElementById('vaadinLoginOverlayWrapper');
+          if (!overlayFormWrapper) {
+            overlayFormWrapper = document.querySelector('vaadin-login-overlay');
+          }
           if (!overlayFormWrapper) return;
           var form = overlayFormWrapper.querySelector('form');
           if (form) {
@@ -67,7 +79,7 @@ class LoginOverlayUtils {
 
   /**
    * Generates a JavaScript snippet that finds the form wrapper containing form
-   * elements.
+   * elements. Handles both Vaadin 24 and Vaadin 25+ compatibility.
    *
    * @param action the JavaScript code to execute on the form wrapper
    * @return the complete JavaScript string with the form wrapper lookup and the
@@ -77,6 +89,13 @@ class LoginOverlayUtils {
     return """
         setTimeout(() => {
           var overlayWrapper = document.getElementById('vaadinLoginOverlayWrapper');
+          if (!overlayWrapper) {
+            var loginOverlay = document.querySelector('vaadin-login-overlay');
+            if (loginOverlay && loginOverlay.shadowRoot) {
+              overlayWrapper = loginOverlay.shadowRoot
+                .querySelector('vaadin-login-overlay-wrapper');
+            }
+          }
           if (!overlayWrapper) return;
           var formWrapper = overlayWrapper.querySelector('vaadin-login-form-wrapper');
           if (!formWrapper) return;
