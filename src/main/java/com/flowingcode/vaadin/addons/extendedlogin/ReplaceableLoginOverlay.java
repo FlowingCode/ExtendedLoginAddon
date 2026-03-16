@@ -28,49 +28,104 @@ import com.vaadin.flow.component.HasElement;
  */
 public interface ReplaceableLoginOverlay extends HasElement {
 
+  /**
+   * Replaces the contents of the login form with the provided elements. Clears
+   * existing form
+   * contents and appends the provided elements.
+   *
+   * @param withElement the elements to add to the form
+   */
   default void replaceFormComponents(HasElement... withElement) {
-    this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].getElementsByTagName('form')[0].replaceChildren())");
+    this.getElement().executeJs(LoginOverlayUtils.getFormWrapperScript("form.replaceChildren();"));
+
     for (HasElement we : withElement) {
       getElement().appendChild(we.getElement());
       this.getElement()
-          .executeJs(
-              "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].getElementsByTagName('form')[0].appendChild($0))",
-              we.getElement());
+          .executeJs(LoginOverlayUtils.getFormWrapperScript("form.appendChild($0);"), we.getElement());
     }
   }
 
+  /**
+   * Replaces the header/brand component of the login overlay. Clears the brand
+   * section and appends
+   * the provided element.
+   *
+   * @param withElement the element to set as the new brand/header
+   */
   default void replaceHeaderComponent(HasElement withElement) {
     getElement().appendChild(withElement.getElement());
-    this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').shadowRoot.querySelector('[part=\"brand\"]').replaceChildren())");
-    this.getElement()
-        .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').shadowRoot.querySelector('[part=\"brand\"]').appendChild($0))",
-            withElement);
-  }
 
-  default void replaceForgotPassword(HasElement withElement) {
-    withElement.getElement().setAttribute("slot", "forgot-password");
-    getElement().appendChild(withElement.getElement());
     this.getElement()
         .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].querySelector('[slot=\\\"forgot-password\\\"]').remove())");
+            LoginOverlayUtils.getOverlayWrapperScript(
+                """
+                    var brand = overlayWrapper.shadowRoot ? overlayWrapper.shadowRoot.querySelector('[part="brand"]') : overlayWrapper.querySelector('[part="brand"]');
+                    if (brand) {
+                      brand.replaceChildren();
+                    }
+                    """));
+
     this.getElement()
         .executeJs(
-            "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].appendChild($0))",
+            LoginOverlayUtils.getOverlayWrapperScript(
+                """
+                    var brand = overlayWrapper.shadowRoot ? overlayWrapper.shadowRoot.querySelector('[part="brand"]') : overlayWrapper.querySelector('[part="brand"]');
+                    if (brand) {
+                      brand.appendChild($0);
+                    }
+                    """),
             withElement);
   }
 
   /**
-   * Removes the default submit button. 
+   * Removes the forgot password link from the login form.
+   */
+  default void removeForgotPassword() {
+    this.getElement()
+        .executeJs(
+            LoginOverlayUtils.getLoginFormWrapperScript(
+                """
+                    var forgotPassword = formWrapper.querySelector('[slot="forgot-password"]');
+                    if (forgotPassword) {
+                      forgotPassword.remove();
+                    }
+                    """));
+  }
+
+  /**
+   * Replaces the forgot password component in the login overlay. Clears the
+   * forgot password section
+   * and appends the provided element.
+   *
+   * @param withElement the element to set as the new forgot password component
+   *
+   */
+  default void replaceForgotPassword(HasElement withElement) {
+    withElement.getElement().setAttribute("slot", "forgot-password");
+    getElement().appendChild(withElement.getElement());
+    this.removeForgotPassword();
+    this.getElement()
+        .executeJs(
+            LoginOverlayUtils.getLoginFormWrapperScript(
+                """
+                    formWrapper.appendChild($0);
+                    """),
+            withElement);
+  }
+
+  /**
+   * Removes the default submit button.
    */
   default void removeSubmitButton() {
-      this.getElement()
-              .executeJs(
-                      "setTimeout(()=>document.getElementById('vaadinLoginOverlayWrapper').getElementsByTagName('vaadin-login-form-wrapper')[0].querySelector('[slot=\"submit\"]').remove())");
+    this.getElement()
+        .executeJs(
+            LoginOverlayUtils.getLoginFormWrapperScript(
+                """
+                    var submitButton = formWrapper.querySelector('[slot="submit"]');
+                    if (submitButton) {
+                      submitButton.remove();
+                    }
+                    """));
   }
- 
+
 }
