@@ -27,8 +27,8 @@ import com.vaadin.flow.component.html.IFrame;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayoutView.java")
-@DemoSource("/src/test/java/com/flowingcode/vaadin/addons/extendedlogin/TestLoginLayout.java")
+@DemoSource(clazz = TestLoginLayoutView.class)
+@DemoSource(clazz = TestLoginLayout.class)
 //#if vaadin eq 0
 @DemoSource(value = "/src/test/resources/META-INF/frontend/styles/extended-login-styles.css",
     caption = "extended-login-styles.css", condition = "vaadin eq 24")
