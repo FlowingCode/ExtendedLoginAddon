@@ -28,7 +28,7 @@ Add the following dependencies in your pom.xml file:
 ```xml
 <dependency>
    <groupId>org.vaadin.addons.flowingcode</groupId>
-   <artifactId>extended-login-addon</artifactId>
+   <artifactId>extended-login</artifactId>
    <version>X.Y.Z</version>
 </dependency>
 ```
